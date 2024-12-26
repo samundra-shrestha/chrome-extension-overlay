@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Youtube Overlay hide ",
+    "version": "1.0.0",
+    "description": "To hide overlay of youtube shorts video",
+    "action":{"default_popup":"index.html"},
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "scripting"
+    ],
+    "host_permissions": [
+        "http://*/*",
+        "https://*/*"
+    ],
+    "icons": {
+        "16": "icon-16.png",
+        "24": "icon-24.png",
+        "32": "icon-32.png",
+        "64": "icon-64.png",
+        "128": "icon-128.png"
+    }
+}
