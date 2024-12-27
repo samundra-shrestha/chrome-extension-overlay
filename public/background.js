@@ -25,10 +25,18 @@ chrome.action.onClicked.addListener(async (tab) => {
         func: () => {
           // document.body.style.backgroundColor = 'red';
           document
-            .querySelectorAll(".overlay.ytd-reel-video-renderer")
-            .forEach((el) => {
-              el.style.opacity = "0";
-            });
+            .getElementById("shorts-inner-container")
+            .classList.add("remove-overlay");
+          const style = document.createElement("style");
+          style.id="remove-overlay";
+          style.innerHTML = `
+  .remove-overlay {
+  .overlay.ytd-reel-video-renderer{
+  opacity: 0 !important;
+  }
+  }
+`;
+          document.head.appendChild(style);
         },
       });
     } else if (nextState === "OFF") {
@@ -38,10 +46,12 @@ chrome.action.onClicked.addListener(async (tab) => {
         func: () => {
           // document.body.style.backgroundColor = 'red';
           document
-            .querySelectorAll(".overlay.ytd-reel-video-renderer")
-            .forEach((el) => {
-              el.style.opacity = "1";
-            });
+            .getElementById("shorts-inner-container")
+            .classList.remove("remove-overlay");
+            const style = document.getElementById('remove-overlay');
+            if (style) {
+              style.remove();  // Remove the <style> tag from the DOM
+            }
         },
       });
     }
